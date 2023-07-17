@@ -1,0 +1,17 @@
+﻿Tube # ,Sample,Type,Treatment,Batch
+17,BV2_control_1_cell,Exosome,Control,1
+18,BV2_TGFB_1_cell,Exosome,TGFB,1
+19,BV2_IL10_1_cell,Exosome,IL10,1
+20,BV2_LPS_1_cell,Exosome,LPS,1
+21,BV2_control_2_cell,Exosome,Control,2
+22,BV2_TGFB_2_cell,Exosome,TGFB,2
+23,BV2_IL10_2_cell,Exosome,IL10,2
+24,BV2_LPS_2_cell,Exosome,LPS,2
+25,BV2_control_3_cell,Exosome,Control,3
+26,BV2_TGFB_3_cell,Exosome,TGFB,3
+27,BV2_IL10_3_cell,Exosome,IL10,3
+28,BV2_LPS_3_cell,Exosome,LPS,3
+29,BV2_control_4_cell,Exosome,Control,4
+30,BV2_TGFB_4_cell,Exosome,TGFB,4
+31,BV2_IL10_4_cell,Exosome,IL10,4
+32,BV2_LPS_4_cell,Exosome,LPS,4
