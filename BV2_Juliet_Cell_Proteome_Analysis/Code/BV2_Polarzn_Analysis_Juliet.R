@@ -1,8 +1,9 @@
-#####cell lysates from my BV2 polarization experiment Data Analysis - Aditya Natu - Rangaraju Lab
-
-###Data: mass spec data on the cell lysates from my BV2 polarization experiment (with gene names on the far right column). From this I would like to see if the treatments I added (LPS, TGFB, IL-10) did in fact polarize my BV2 cells.
-
-###Required: 
+#################################
+#
+#
+#
+#
+#################################
 
 
 ##################Setting the work space##################
@@ -72,15 +73,12 @@ table(rownames(numericMeta) == colnames(cleanDat))
 ##################Principle Component Analysis##################
 
 cleanDat.original_test <- as.data.frame(cleanDat)
-cleanDat.original_test <- as.matrix(cleanDat)
-typeof(cleanDat.original_test)
 cleanDat.original_test <- apply(cleanDat.original_test, 2, as.numeric)
 #Sample PCA SomaData
 pca(cleanDat.original_test, colvec = c('skyblue', 'red', 'yellow', 'green'), labels = numericMeta$Treatment, controlscale=TRUE,scale=3,printres=TRUE,printwidth=25, legendtitle = "Treatment")
 
-
 ############################################################################################################
-#ANOVA:  we use the one-way ANOVA aov function, and take the overall ANOVA significance, [probability(>F value) by chance], as equivalent to the T-test p value, when only 2 groups are being compared. The Tukey is not reported in that case, and the column before in ANOVAout is changed to FDR-adjusted p value using the Benjamini-Hochberg method.
+#Volcano Code Calculation
 ############################################################################################################
 groupsToTest="ALL"
 FileBaseName="BV2_Polzaization_Analysis"
@@ -168,13 +166,10 @@ max_frd = 0.05
 df_Frd_vec_double$SupervisingKeep <- FALSE
 
 table(df_Frd_vec_double$SupervisingKeep)
-#FALSE 
-#1882 : Correct : Sanity check : Same as input cleanDat
 
 df_Frd_vec_double$SupervisingKeep[which(df_Frd_vec_double$P_Overall < max_frd) ] <- TRUE
 
 table(df_Frd_vec_double$SupervisingKeep)
-
 
 toplot <- cleanDat.double[df_Frd_vec_double$SupervisingKeep,]
 
@@ -183,7 +178,6 @@ reorder <- c(1,5,9,13, 2,6,10,14, 3,7,11,15, 4,8,12,16)
 dim(toplot)
 
 metdat <- data.frame(Status=numericMeta$Treatment)
-
 
 heatmapLegendColors=list('Status'=c("royalblue","yellow","red", "deeppink")) #"green", "turquoise"
 
@@ -581,9 +575,5 @@ for (caseSubset in groupsToTest) { #*+*+*+*+*
 #setwd(rootdir)
 #save.image(paste0("BV2_Juliet_Analysis_july27",FileBaseName,"(COMPLETED PIPELINE).RData"))
 ######################################COMPLETED######################################
-
-
-
-
 
 
