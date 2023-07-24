@@ -183,32 +183,3 @@ annotation_data <- as.data.frame(colData(rld)[c("Treatment")])
 pheatmap(matrixx, annotation_col=annotation_data, show_rownames = T,cluster_cols= FALSE, main = "Treatment_TGFB_vs_Control") #true / False to toggle supervised and unsupervised clustering
 #########################################################CHANGE##############################################################################
 
-
-#########################################################################IGNORE FOR NOW!###################################################################
-
-# #Pull the norm counts! 
-# VolcCounts <- counts(dds)
-# VolcCounts.log2 <- log2(VolcCounts + 1)
-# 
-# write.csv(VolcCounts.log2,"VolcCounts_log2.csv")
-# 
-# #Parameters needed for ParANOVA! 
-# cleanDat <- VolcCounts.log2
-# Grouping <- numericMeta$Treatment
-# parallelThreads=12
-# source("./parANOVA.dex.R")
-# ANOVAout <- parANOVA.dex()
-# labelTop <- 25
-# FCmin=1
-# signifP=0.05 
-# plotVolc()
-# 
-# head(ANOVAout)
-######################################################################Volcano#######################################################################
-#Sanity Check
-# Find the rows that have a column with a value of 0
-# zero_rows.1 <- VolcCounts.log2[rowSums(VolcCounts.log2 == 0) > 0,]
-# # Print the zero rows
-# print(sum(zero_rows.1))
-######################################################################Volcano Code edit###################################################################
-
